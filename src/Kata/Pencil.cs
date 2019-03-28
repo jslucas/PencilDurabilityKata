@@ -17,16 +17,30 @@ namespace Kata
         {
             string text = input;
 
-            this.Durability -= text.Length;
-
-            if (this.Durability < 1)
+            if (this.Durability < text.Length)
             {
-                text = new String(' ', text.Length);
+                text = this.DullWrite(text);
             }
+
+            this.Dull(text.Length);
 
             this.Text += text;
 
             return this.Text;
+        }
+
+        private void Dull(int numOfChars)
+        {
+            this.Durability -= numOfChars;
+        }
+
+        // TODO: Change to extension method?
+        private string DullWrite(string input)
+        {
+            int difference = input.Length - this.Durability;
+            string whiteSpace = new String(' ', difference);
+
+            return input.Remove(this.Durability, difference).Insert(this.Durability, whiteSpace);
         }
 
     }
