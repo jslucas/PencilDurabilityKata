@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Kata
@@ -7,14 +8,14 @@ namespace Kata
     {
         public static string Write(this Pencil pencil, string text)
         {
-            int numOfNonWhitespaceChars = text.Count(c => !Char.IsWhiteSpace(c));
+            int durabilityCost = text.DurabilityCost();
 
-            if (pencil.Durability < numOfNonWhitespaceChars)
+            if (pencil.Durability < durabilityCost)
             {
                 text = pencil.DullWrite(text);
             }
 
-            pencil.Dull(numOfNonWhitespaceChars);
+            pencil.Dull(durabilityCost);
 
             pencil.Text += text;
 
@@ -32,6 +33,19 @@ namespace Kata
             string whiteSpace = new String(' ', difference);
 
             return input.Remove(pencil.Durability, difference).Insert(pencil.Durability, whiteSpace);
+        }
+
+        public static int DurabilityCost(this string text)
+        {
+            var nonWhitespaceChars = text.ToCharArray()
+                                         .Where(c => !Char.IsWhiteSpace(c));
+
+            int numOfUpperCaseChars = nonWhitespaceChars.Where(c => Char.IsUpper(c)).Count();
+
+            int numOfLowerCaseChars = nonWhitespaceChars.Count() - numOfUpperCaseChars;
+
+            return numOfLowerCaseChars + (numOfUpperCaseChars * 2);
+
         }
     }
 }

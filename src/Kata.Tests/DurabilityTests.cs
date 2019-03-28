@@ -37,14 +37,20 @@ namespace Kata.Tests
 
 
         [Fact]
-        public void WritingWhitespaceAndNewLinesShouldNotLowerPencilDurability()
+        public void WritingWhitespaceAndNewLinesDoesNotLowerPencilDurability()
         {
             pencil.Durability = 5;
             pencil.Write("     ");
             Assert.Equal(5, pencil.Durability);
         }
 
-
+        [Fact]
+        public void UpperCaseLettersLowerDurabilityByTwo()
+        {
+            pencil.Durability = 10;
+            pencil.Write("Lorem");
+            Assert.Equal(4, pencil.Durability);
+        }
     }
 
 }
