@@ -20,5 +20,12 @@ namespace Kata.Tests
             Assert.Equal("lorem ipsum dolor sit amet", pencil.Write(" dolor sit amet"));
         }
 
+        [Fact]
+        public void WhenAPencilIsCreatedItCanBeGivenADurabilityValue()
+        {
+            Pencil pencil = new Pencil(5);
+            Assert.Equal(5, pencil.Durability);
+        }
+
     }
 }
