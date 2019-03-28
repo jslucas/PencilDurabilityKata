@@ -12,5 +12,13 @@ namespace Kata.Tests
             Assert.Equal("lorem ipsum", pencil.Write("lorem ipsum"));
         }
 
+        [Fact]
+        public void WriteAppendsStringToExistingTextOnPaper()
+        {
+            Pencil pencil = new Pencil();
+            pencil.Write("lorem ipsum");
+            Assert.Equal("lorem ipsum dolor sit amet", pencil.Write(" dolor sit amet"));
+        }
+
     }
 }
