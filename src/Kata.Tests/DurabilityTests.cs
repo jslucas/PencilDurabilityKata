@@ -51,6 +51,14 @@ namespace Kata.Tests
             pencil.Write("Lorem");
             Assert.Equal(4, pencil.Durability);
         }
-    }
 
+        [Fact]
+        public void LowerCaseLettersLowerDurabilityByOne()
+        {
+            pencil.Durability = 10;
+            pencil.Write("LoREm");
+            Assert.Equal(2, pencil.Durability);
+        }
+
+    }
 }
