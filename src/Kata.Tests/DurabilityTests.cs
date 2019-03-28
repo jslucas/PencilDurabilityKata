@@ -11,6 +11,15 @@ namespace Kata.Tests
             Pencil pencil = new Pencil(5);
             Assert.Equal(5, pencil.Durability);
         }
+
+        [Fact]
+        public void APencilLosesDurabilityAfterWriting()
+        {
+            Pencil pencil = new Pencil(5);
+            pencil.Write("Lorem ipsum");
+            Assert.Equal(4, pencil.Durability);
+        }
+
     }
 
 }

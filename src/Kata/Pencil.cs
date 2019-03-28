@@ -5,7 +5,7 @@ namespace Kata
     public class Pencil
     {
         public string Text { get; private set; }
-        public int Durability { get; private set; }
+        public int Durability { get; private set; } = 0;
 
         public Pencil() { }
         public Pencil(int durability)
@@ -15,6 +15,8 @@ namespace Kata
 
         public string Write(string input)
         {
+            this.Durability -= input.Length / 10;
+
             this.Text += input;
 
             return this.Text;
