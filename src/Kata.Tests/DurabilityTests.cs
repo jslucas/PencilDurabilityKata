@@ -35,6 +35,16 @@ namespace Kata.Tests
             Assert.Equal("     ", pencil.Write("lorem"));
         }
 
+
+        [Fact]
+        public void WritingWhitespaceAndNewLinesShouldNotLowerPencilDurability()
+        {
+            pencil.Durability = 5;
+            pencil.Write("     ");
+            Assert.Equal(5, pencil.Durability);
+        }
+
+
     }
 
 }

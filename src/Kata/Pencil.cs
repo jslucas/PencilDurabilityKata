@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Kata
 {
@@ -13,16 +14,16 @@ namespace Kata
             this.Durability = durability;
         }
 
-        public string Write(string input)
+        public string Write(string text)
         {
-            string text = input;
+            int numOfNonWhitespaceChars = text.Count(c => !Char.IsWhiteSpace(c));
 
-            if (this.Durability < text.Length)
+            if (this.Durability < numOfNonWhitespaceChars)
             {
                 text = this.DullWrite(text);
             }
 
-            this.Dull(text.Length);
+            this.Dull(numOfNonWhitespaceChars);
 
             this.Text += text;
 
@@ -31,7 +32,7 @@ namespace Kata
 
         private void Dull(int numOfChars)
         {
-            this.Durability -= numOfChars;
+            this.Durability = Math.Max(0, this.Durability - numOfChars);
         }
 
         // TODO: Change to extension method?
