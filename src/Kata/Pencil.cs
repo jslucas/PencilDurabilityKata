@@ -5,7 +5,7 @@ namespace Kata
     public class Pencil
     {
         public string Text { get; private set; }
-        public int Durability { get; private set; } = 0;
+        public int Durability { get; set; } = 0;
 
         public Pencil() { }
         public Pencil(int durability)

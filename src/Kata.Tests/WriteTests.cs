@@ -5,12 +5,14 @@ namespace Kata.Tests
 {
     public class WriteTests
     {
+        #region "Test context"
         private Pencil pencil;
 
         public WriteTests()
         {
             this.pencil = new Pencil(500);
         }
+        #endregion
 
         [Fact]
         public void WhenWriteIsPassedAStringItShouldAppearOnPaper()

@@ -5,6 +5,15 @@ namespace Kata.Tests
 {
     public class DurabilityTests
     {
+        #region "Test context"
+        private Pencil pencil;
+
+        public DurabilityTests()
+        {
+            this.pencil = new Pencil();
+        }
+        #endregion
+
         [Fact]
         public void WhenAPencilIsCreatedItCanBeGivenADurabilityValue()
         {
@@ -15,7 +24,7 @@ namespace Kata.Tests
         [Fact]
         public void APencilLosesDurabilityAfterWriting()
         {
-            Pencil pencil = new Pencil(5);
+            pencil.Durability = 5;
             pencil.Write("Lorem");
             Assert.Equal(0, pencil.Durability);
         }
@@ -23,7 +32,6 @@ namespace Kata.Tests
         [Fact]
         public void APencilOnlyWritesWhitespaceWhenDull()
         {
-            Pencil pencil = new Pencil(0);
             Assert.Equal("     ", pencil.Write("lorem"));
         }
 
