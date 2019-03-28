@@ -15,9 +15,16 @@ namespace Kata
 
         public string Write(string input)
         {
-            this.Durability -= input.Length;
+            string text = input;
 
-            this.Text += input;
+            this.Durability -= text.Length;
+
+            if (this.Durability < 1)
+            {
+                text = new String(' ', text.Length);
+            }
+
+            this.Text += text;
 
             return this.Text;
         }

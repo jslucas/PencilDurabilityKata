@@ -9,7 +9,7 @@ namespace Kata.Tests
 
         public WriteTests()
         {
-            this.pencil = new Pencil();
+            this.pencil = new Pencil(500);
         }
 
         [Fact]

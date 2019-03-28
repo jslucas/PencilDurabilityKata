@@ -20,6 +20,13 @@ namespace Kata.Tests
             Assert.Equal(0, pencil.Durability);
         }
 
+        [Fact]
+        public void APencilOnlyWritesWhitespaceWhenDull()
+        {
+            Pencil pencil = new Pencil(0);
+            Assert.Equal("     ", pencil.Write("lorem"));
+        }
+
     }
 
 }
