@@ -16,6 +16,7 @@ namespace Kata.Tests
 
         #endregion
 
+
         [Fact]
         public void WhenAPencilIsCreatedItCanBeGivenADurabilityValue()
         {

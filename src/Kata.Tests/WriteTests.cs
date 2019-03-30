@@ -14,11 +14,13 @@ namespace Kata.Tests
         }
         #endregion
 
+
         [Fact]
         public void WhenWriteIsPassedAStringItShouldAppearOnPaper()
         {
             Assert.Equal("lorem ipsum", pencil.Write("lorem ipsum"));
         }
+
 
         [Fact]
         public void WriteAppendsStringToExistingTextOnPaper()
@@ -26,6 +28,7 @@ namespace Kata.Tests
             pencil.Write("lorem ipsum");
             Assert.Equal("lorem ipsum dolor sit amet", pencil.Write(" dolor sit amet"));
         }
+
 
     }
 }
