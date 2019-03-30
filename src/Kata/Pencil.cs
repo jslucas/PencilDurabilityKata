@@ -8,14 +8,19 @@ namespace Kata
     {
         public string Text { get; set; }
         private int initialDurability;
-        public int Durability { get; set; } = 0;
+        public int Durability { get; set; }
+        public int Length { get; private set; }
 
 
-        public Pencil() { }
+        public Pencil() : this(0, 0) { }
 
 
-        public Pencil(int durability)
+        public Pencil(int durability) : this(durability, 0) { }
+
+
+        public Pencil(int durability, int length)
         {
+            this.Length = length;
             this.initialDurability = durability;
             this.Durability = durability;
         }
