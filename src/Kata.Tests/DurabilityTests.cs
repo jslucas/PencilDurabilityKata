@@ -12,6 +12,8 @@ namespace Kata.Tests
         {
             this.pencil = new Pencil();
         }
+
+
         #endregion
 
         [Fact]
@@ -21,6 +23,7 @@ namespace Kata.Tests
             Assert.Equal(5, pencil.Durability);
         }
 
+
         [Fact]
         public void APencilLosesDurabilityAfterWriting()
         {
@@ -28,6 +31,7 @@ namespace Kata.Tests
             pencil.Write("Lorem");
             Assert.Equal(0, pencil.Durability);
         }
+
 
         [Fact]
         public void APencilOnlyWritesWhitespaceWhenDull()
@@ -44,6 +48,7 @@ namespace Kata.Tests
             Assert.Equal(5, pencil.Durability);
         }
 
+
         [Fact]
         public void UpperCaseLettersLowerDurabilityByTwo()
         {
@@ -51,6 +56,7 @@ namespace Kata.Tests
             pencil.Write("Lorem");
             Assert.Equal(4, pencil.Durability);
         }
+
 
         [Fact]
         public void LowerCaseLettersLowerDurabilityByOne()
@@ -60,6 +66,7 @@ namespace Kata.Tests
             Assert.Equal(2, pencil.Durability);
         }
 
+
         [Fact]
         public void PencilWillReplaceCharactersWithWhitespaceIfWordRequiresMoreDurabilityThanAvailable()
         {
@@ -67,6 +74,7 @@ namespace Kata.Tests
             // Assert.Equal("Lorem ipsum dolo          ", pencil.Write("Lorem ipsum dolor sit amet"));
             Assert.Equal("LOREM IP                  ", pencil.Write("LOREM IPSUM dolor sit amet"));
         }
+
 
     }
 }

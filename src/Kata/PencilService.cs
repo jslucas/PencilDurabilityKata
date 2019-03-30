@@ -9,23 +9,23 @@ namespace Kata
         public static string Write(this Pencil pencil, string text)
         {
             int durabilityCost = text.DurabilityCost();
-
             if (pencil.Durability < durabilityCost)
             {
                 text = pencil.DullWrite(text);
             }
 
             pencil.Dull(durabilityCost);
-
             pencil.Text += text;
 
             return pencil.Text;
         }
 
+
         public static void Dull(this Pencil pencil, int numOfChars)
         {
             pencil.Durability = Math.Max(0, pencil.Durability - numOfChars);
         }
+
 
         public static string DullWrite(this Pencil pencil, string input)
         {
@@ -45,20 +45,18 @@ namespace Kata
             }
 
             return result;
-
         }
 
-        public static int DurabilityCost(this string text)
+
+        private static int DurabilityCost(this string text)
         {
-            var nonWhitespaceChars = text.ToCharArray()
-                                         .Where(c => !Char.IsWhiteSpace(c));
-
+            IEnumerable<char> nonWhitespaceChars = text.ToCharArray().Where(c => !Char.IsWhiteSpace(c));
             int numOfUpperCaseChars = nonWhitespaceChars.Where(c => Char.IsUpper(c)).Count();
-
             int numOfLowerCaseChars = nonWhitespaceChars.Count() - numOfUpperCaseChars;
 
             return numOfLowerCaseChars + (numOfUpperCaseChars * 2);
-
         }
+
+
     }
 }
