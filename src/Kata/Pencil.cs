@@ -44,6 +44,7 @@ namespace Kata
         public void Sharpen()
         {
             this.Durability = initialDurability;
+            this.Length = Math.Max(0, this.Length - 1);
         }
 
 
