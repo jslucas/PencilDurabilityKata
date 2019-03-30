@@ -30,7 +30,7 @@ so that I can continue to write with it after it goes dull*
 
 When a pencil is sharpened, it regains its initial point durability and can write more characters before it goes dull again.  Thus, given a pencil created with point durability of 40,000 that has since degraded, when it is sharpened, its point durability will be 40,000 again.
 
-A pencil should also be created with an initial length value. Pencils of short length will only be sharpenable a small number of times while pencils of longer length can be sharpened more times.  The pencil's length is reduced by one each time it is sharpened.  When a pencil's length is zero, then sharpening it no longer restores its point durabliity.
+A pencil should also be created with an initial length value. Pencils of short length will only be sharpenable a small number of times while pencils of longer length can be sharpened more times.  The pencil's length is reduced by one each time it is sharpened.  When a pencil's length is zero, then sharpening it no longer restores its point durability.
 
 
 ## Erase
