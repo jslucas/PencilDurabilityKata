@@ -60,5 +60,13 @@ namespace Kata.Tests
             Assert.Equal(2, pencil.Durability);
         }
 
+        [Fact]
+        public void PencilWillReplaceCharactersWithWhitespaceIfWordRequiresMoreDurabilityThanAvailable()
+        {
+            pencil.Durability = 15;
+            // Assert.Equal("Lorem ipsum dolo          ", pencil.Write("Lorem ipsum dolor sit amet"));
+            Assert.Equal("LOREM IP                  ", pencil.Write("LOREM IPSUM dolor sit amet"));
+        }
+
     }
 }

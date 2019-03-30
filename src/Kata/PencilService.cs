@@ -29,10 +29,23 @@ namespace Kata
 
         public static string DullWrite(this Pencil pencil, string input)
         {
-            int difference = input.Length - pencil.Durability;
-            string whiteSpace = new String(' ', difference);
+            int cost = 0;
+            string result = "";
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (Char.IsUpper(input[i])) { cost += 2; }
+                else if (Char.IsLower(input[i])) { cost += 1; }
 
-            return input.Remove(pencil.Durability, difference).Insert(pencil.Durability, whiteSpace);
+                if (cost > pencil.Durability)
+                {
+                    int remainder = input.Length - i;
+                    result = input.Remove(i, remainder).Insert(i, new String(' ', remainder));
+                    break;
+                }
+            }
+
+            return result;
+
         }
 
         public static int DurabilityCost(this string text)
