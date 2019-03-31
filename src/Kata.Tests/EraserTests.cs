@@ -41,5 +41,13 @@ namespace Kata.Tests
         }
 
 
+        [Fact]
+        public void EraserCannotEraseWithDurabilityOfZero()
+        {
+            pencil.Write("Lorem");
+            Assert.Equal("L    ", pencil.Erase("Lorem"));
+        }
+
+
     }
 }

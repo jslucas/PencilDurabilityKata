@@ -22,7 +22,13 @@ namespace Kata
 
         internal string Erase(string text, string textToErase)
         {
-            this.LowerDurability(textToErase.Length);
+            int cost = textToErase.Length;
+            if (this.Durability < cost)
+            {
+                textToErase = textToErase.Substring(cost - this.Durability);
+            }
+
+            this.LowerDurability(cost);
             int i = text.LastIndexOf(textToErase);
             return text.Remove(i, textToErase.Length).Insert(i, new String(' ', textToErase.Length));
         }
