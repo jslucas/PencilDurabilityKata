@@ -11,7 +11,7 @@ namespace Kata
         private int initialDurability;
         public int Durability { get; set; }
         public int Length { get; private set; }
-        internal Eraser Eraser { get; private set; }
+        public Eraser Eraser { get; private set; }
 
         #endregion
 
@@ -23,9 +23,14 @@ namespace Kata
         public Pencil(int durability) : this(durability, 0) { }
 
 
-        public Pencil(int durability, int length)
+        public Pencil(int durability, int length) : this(durability, length, 0)
         {
-            this.Eraser = new Eraser(this);
+
+        }
+
+        public Pencil(int durability, int length, int eraserDurability)
+        {
+            this.Eraser = new Eraser(this, eraserDurability);
             this.Length = length;
             this.initialDurability = durability;
             this.Durability = durability;
