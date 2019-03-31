@@ -11,6 +11,7 @@ namespace Kata
         public int Length { get; private set; }
         public Eraser Eraser { get; private set; }
 
+
         #endregion
 
 

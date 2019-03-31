@@ -5,10 +5,15 @@ namespace Kata
 {
     public class Eraser : Durable
     {
+        #region "Props"
         private Pencil mPencil;
         internal Pencil Pencil { get { return mPencil; } }
 
 
+        #endregion
+
+
+        #region "Ctors"
         internal Eraser() { }
 
         internal Eraser(Pencil pencil) : this(pencil, 0) { }
@@ -21,6 +26,10 @@ namespace Kata
         }
 
 
+        #endregion
+
+
+        #region "Methods"    
         internal string Erase(string text, string textToErase)
         {
             int cost = textToErase.Length;
@@ -36,6 +45,8 @@ namespace Kata
             return text.Remove(i, textToErase.Length).Insert(i, new String(' ', textToErase.Length));
         }
 
+
+        #endregion
 
 
     }
