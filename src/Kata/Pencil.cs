@@ -7,7 +7,7 @@ namespace Kata
     public class Pencil : Durable
     {
         #region "Props"
-        public string Text { get; set; }
+        internal Paper Paper { get; set; } = new Paper();
         public int Length { get; private set; }
         public Eraser Eraser { get; private set; }
 
@@ -17,14 +17,9 @@ namespace Kata
         #region "Ctors"
         public Pencil() : this(0, 0) { }
 
-
         public Pencil(int durability) : this(durability, 0) { }
 
-
-        public Pencil(int durability, int length) : this(durability, length, 0)
-        {
-
-        }
+        public Pencil(int durability, int length) : this(durability, length, 0) { }
 
         public Pencil(int durability, int length, int eraserDurability)
         {
@@ -48,9 +43,9 @@ namespace Kata
             }
 
             this.LowerDurability(durabilityCost);
-            this.Text += text;
+            this.Paper.Text += text;
 
-            return this.Text;
+            return this.Paper.Text;
         }
 
 
@@ -84,8 +79,19 @@ namespace Kata
 
         public string Erase(string textToRemove)
         {
-            this.Text = this.Eraser.Erase(this.Text, textToRemove);
-            return this.Text;
+            this.Paper.Text = this.Eraser.Erase(this.Paper.Text, textToRemove);
+            return this.Paper.Text;
+        }
+
+
+        public string Edit(string text)
+        {
+            var paperText = this.Paper.Text;
+            var whiteSpaceIndexes = this.Paper.ErasedIndexes.Take(text.Length);
+            paperText = paperText.Remove(whiteSpaceIndexes.First(), text.Length);
+            paperText = paperText.Insert(whiteSpaceIndexes.First(), text);
+
+            return paperText;
         }
 
 
