@@ -4,12 +4,10 @@ using System.Linq;
 
 namespace Kata
 {
-    public class Pencil
+    public class Pencil : Durable
     {
         #region "Props"
         public string Text { get; set; }
-        private int initialDurability;
-        public int Durability { get; set; }
         public int Length { get; private set; }
         public Eraser Eraser { get; private set; }
 
@@ -32,7 +30,7 @@ namespace Kata
         {
             this.Eraser = new Eraser(this, eraserDurability);
             this.Length = length;
-            this.initialDurability = durability;
+            this.mInitialDurability = durability;
             this.Durability = durability;
         }
 
@@ -49,7 +47,7 @@ namespace Kata
                 text = this.DullWrite(text);
             }
 
-            this.Dull(durabilityCost);
+            this.LowerDurability(durabilityCost);
             this.Text += text;
 
             return this.Text;
@@ -58,14 +56,8 @@ namespace Kata
 
         public void Sharpen()
         {
-            this.Durability = initialDurability;
+            this.Durability = mInitialDurability;
             this.Length = Math.Max(0, this.Length - 1);
-        }
-
-
-        public void Dull(int numOfChars)
-        {
-            this.Durability = Math.Max(0, this.Durability - numOfChars);
         }
 
 

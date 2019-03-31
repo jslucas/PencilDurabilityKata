@@ -2,11 +2,9 @@ using System;
 
 namespace Kata
 {
-    public class Eraser
+    public class Eraser : Durable
     {
         private Pencil pencil;
-        private int initialDurability;
-        public int Durability { get; set; }
         internal Pencil Pencil { get { return pencil; } }
 
 
@@ -17,7 +15,7 @@ namespace Kata
         internal Eraser(Pencil pencil, int durability)
         {
             this.pencil = pencil;
-            this.initialDurability = durability;
+            this.mInitialDurability = durability;
             this.Durability = durability;
         }
 
@@ -27,6 +25,7 @@ namespace Kata
             int i = text.LastIndexOf(textToErase);
             return text.Remove(i, textToErase.Length).Insert(i, new String(' ', textToErase.Length));
         }
+
 
 
     }
