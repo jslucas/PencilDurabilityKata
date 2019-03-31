@@ -4,8 +4,8 @@ namespace Kata
 {
     public class Eraser : Durable
     {
-        private Pencil pencil;
-        internal Pencil Pencil { get { return pencil; } }
+        private Pencil mPencil;
+        internal Pencil Pencil { get { return mPencil; } }
 
 
         internal Eraser() { }
@@ -14,7 +14,7 @@ namespace Kata
 
         internal Eraser(Pencil pencil, int durability)
         {
-            this.pencil = pencil;
+            this.mPencil = pencil;
             this.mInitialDurability = durability;
             this.Durability = durability;
         }
