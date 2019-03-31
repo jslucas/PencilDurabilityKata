@@ -31,7 +31,7 @@ namespace Kata
 
             this.LowerDurability(cost);
             int i = text.LastIndexOf(textToErase);
-            this.mPencil.Paper.ErasedIndexes.AddRange(Enumerable.Range(i, textToErase.Length));
+            this.mPencil.Paper.ErasedIndexes.Add(i);
 
             return text.Remove(i, textToErase.Length).Insert(i, new String(' ', textToErase.Length));
         }

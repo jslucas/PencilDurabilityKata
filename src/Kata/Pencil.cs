@@ -86,12 +86,22 @@ namespace Kata
 
         public string Edit(string text)
         {
-            var paperText = this.Paper.Text;
-            var whiteSpaceIndexes = this.Paper.ErasedIndexes.Take(text.Length);
-            paperText = paperText.Remove(whiteSpaceIndexes.First(), text.Length);
-            paperText = paperText.Insert(whiteSpaceIndexes.First(), text);
+            char[] paperText = this.Paper.Text.ToCharArray();
+            var lastErasedIndex = this.Paper.ErasedIndexes.Last();
 
-            return paperText;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (Char.IsWhiteSpace(paperText[lastErasedIndex + i]))
+                {
+                    paperText[lastErasedIndex + i] = text[i];
+                }
+                else
+                {
+                    paperText[lastErasedIndex + i] = '@';
+                }
+            }
+
+            return new String(paperText);
         }
 
 
