@@ -20,7 +20,6 @@ namespace Kata.Tests
         [Fact]
         public void EraserRemovesLastOccuranceOfText()
         {
-            var pencil = new Pencil(6, 1);
             pencil.Write("Lorem");
             Assert.Equal("   em", pencil.Erase("Lor"));
         }
@@ -30,6 +29,15 @@ namespace Kata.Tests
         public void WhenAnEraserIsCreatedItCanBeGivenADurabilityValue()
         {
             Assert.Equal(4, this.pencil.Eraser.Durability);
+        }
+
+
+        [Fact]
+        public void ErasingACharLowersDurabilityByOne()
+        {
+            pencil.Write("Lorem");
+            pencil.Erase("m");
+            Assert.Equal(3, pencil.Eraser.Durability);
         }
 
 

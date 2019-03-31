@@ -22,6 +22,7 @@ namespace Kata
 
         internal string Erase(string text, string textToErase)
         {
+            this.LowerDurability(textToErase.Length);
             int i = text.LastIndexOf(textToErase);
             return text.Remove(i, textToErase.Length).Insert(i, new String(' ', textToErase.Length));
         }

@@ -5,7 +5,7 @@ namespace Kata
 {
     public abstract class Durable
     {
-        public int mInitialDurability;
+        protected int mInitialDurability;
         public int Durability { get; set; }
 
 
