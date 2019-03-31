@@ -6,12 +6,17 @@ namespace Kata
 {
     public class Pencil
     {
+        #region "Props"
         public string Text { get; set; }
         private int initialDurability;
         public int Durability { get; set; }
         public int Length { get; private set; }
 
 
+        #endregion
+
+
+        #region "Ctors"
         public Pencil() : this(0, 0) { }
 
 
@@ -26,6 +31,10 @@ namespace Kata
         }
 
 
+        #endregion
+
+
+        #region "Methods"
         public string Write(string text)
         {
             int durabilityCost = text.DurabilityCost();
@@ -73,6 +82,9 @@ namespace Kata
 
             return result;
         }
+
+
+        #endregion
 
 
     }
