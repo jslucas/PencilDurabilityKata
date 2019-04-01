@@ -10,7 +10,7 @@ namespace Kata.Tests
 
         public EraserTests()
         {
-            this.pencil = new Pencil( 6, 1, 4 );
+            this.pencil = new Pencil(6, 1, 4);
         }
 
 
@@ -20,32 +20,32 @@ namespace Kata.Tests
         [Fact]
         public void EraserRemovesLastOccuranceOfText()
         {
-            pencil.Write( "Lorem" );
-            Assert.Equal( "   em", pencil.Erase( "Lor" ) );
+            pencil.Write("Lorem");
+            Assert.Equal("   em", pencil.Erase("Lor"));
         }
 
 
         [Fact]
         public void WhenAnEraserIsCreatedItCanBeGivenADurabilityValue()
         {
-            Assert.Equal( 4, this.pencil.Eraser.Durability );
+            Assert.Equal(4, this.pencil.Eraser.Durability);
         }
 
 
         [Fact]
         public void ErasingACharLowersDurabilityByOne()
         {
-            pencil.Write( "Lorem" );
-            pencil.Erase( "m" );
-            Assert.Equal( 3, pencil.Eraser.Durability );
+            pencil.Write("Lorem");
+            pencil.Erase("m");
+            Assert.Equal(3, pencil.Eraser.Durability);
         }
 
 
         [Fact]
         public void EraserCannotEraseWithDurabilityOfZero()
         {
-            pencil.Write( "Lorem" );
-            Assert.Equal( "L    ", pencil.Erase( "Lorem" ) );
+            pencil.Write("Lorem");
+            Assert.Equal("L    ", pencil.Erase("Lorem"));
         }
 
 

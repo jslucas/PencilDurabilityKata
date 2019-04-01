@@ -16,9 +16,9 @@ namespace Kata
         #region "Ctors"
         internal Eraser() { }
 
-        internal Eraser( Pencil pencil ) : this( pencil, 0 ) { }
+        internal Eraser(Pencil pencil) : this(pencil, 0) { }
 
-        internal Eraser( Pencil pencil, int durability )
+        internal Eraser(Pencil pencil, int durability)
         {
             this.mPencil = pencil;
             this.mInitialDurability = durability;
@@ -30,19 +30,19 @@ namespace Kata
 
 
         #region "Methods"    
-        internal string Erase( string text, string textToErase )
+        internal string Erase(string text, string textToErase)
         {
             int cost = textToErase.Length;
             if (this.Durability < cost)
             {
-                textToErase = textToErase.Substring( cost - this.Durability );
+                textToErase = textToErase.Substring(cost - this.Durability);
             }
 
-            this.LowerDurability( cost );
-            int i = text.LastIndexOf( textToErase );
-            this.mPencil.Paper.ErasedIndexes.Add( i );
+            this.LowerDurability(cost);
+            int i = text.LastIndexOf(textToErase);
+            this.mPencil.Paper.ErasedIndexes.Add(i);
 
-            return text.Remove( i, textToErase.Length ).Insert( i, new String( ' ', textToErase.Length ) );
+            return text.Remove(i, textToErase.Length).Insert(i, new String(' ', textToErase.Length));
         }
 
 

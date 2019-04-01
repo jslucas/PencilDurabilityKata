@@ -10,7 +10,7 @@ namespace Kata.Tests
 
         public WriteTests()
         {
-            this.pencil = new Pencil( 500 );
+            this.pencil = new Pencil(500);
         }
         #endregion
 
@@ -18,15 +18,15 @@ namespace Kata.Tests
         [Fact]
         public void WhenWriteIsPassedAStringItShouldAppearOnPaper()
         {
-            Assert.Equal( "lorem ipsum", pencil.Write( "lorem ipsum" ) );
+            Assert.Equal("lorem ipsum", pencil.Write("lorem ipsum"));
         }
 
 
         [Fact]
         public void WriteAppendsStringToExistingTextOnPaper()
         {
-            pencil.Write( "lorem ipsum" );
-            Assert.Equal( "lorem ipsum dolor sit amet", pencil.Write( " dolor sit amet" ) );
+            pencil.Write("lorem ipsum");
+            Assert.Equal("lorem ipsum dolor sit amet", pencil.Write(" dolor sit amet"));
         }
 
 
