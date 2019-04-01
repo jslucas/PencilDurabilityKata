@@ -10,7 +10,7 @@ namespace Kata.Tests
 
         public DurabilityTests()
         {
-            this.pencil = new Pencil();
+            this.pencil = new Pencil( );
         }
 
 
@@ -20,8 +20,8 @@ namespace Kata.Tests
         [Fact]
         public void WhenAPencilIsCreatedItCanBeGivenADurabilityValue()
         {
-            Pencil pencil = new Pencil(5);
-            Assert.Equal(5, pencil.Durability);
+            Pencil pencil = new Pencil( 5 );
+            Assert.Equal( 5, pencil.Durability );
         }
 
 
@@ -29,15 +29,15 @@ namespace Kata.Tests
         public void APencilLosesDurabilityAfterWriting()
         {
             pencil.Durability = 5;
-            pencil.Write("Lorem");
-            Assert.Equal(0, pencil.Durability);
+            pencil.Write( "Lorem" );
+            Assert.Equal( 0, pencil.Durability );
         }
 
 
         [Fact]
         public void APencilOnlyWritesWhitespaceWhenDull()
         {
-            Assert.Equal("     ", pencil.Write("lorem"));
+            Assert.Equal( "     ", pencil.Write( "lorem" ) );
         }
 
 
@@ -45,8 +45,8 @@ namespace Kata.Tests
         public void WritingWhitespaceAndNewLinesDoesNotLowerPencilDurability()
         {
             pencil.Durability = 5;
-            pencil.Write("     ");
-            Assert.Equal(5, pencil.Durability);
+            pencil.Write( "     " );
+            Assert.Equal( 5, pencil.Durability );
         }
 
 
@@ -54,8 +54,8 @@ namespace Kata.Tests
         public void UpperCaseLettersLowerDurabilityByTwo()
         {
             pencil.Durability = 10;
-            pencil.Write("Lorem");
-            Assert.Equal(4, pencil.Durability);
+            pencil.Write( "Lorem" );
+            Assert.Equal( 4, pencil.Durability );
         }
 
 
@@ -63,8 +63,8 @@ namespace Kata.Tests
         public void LowerCaseLettersLowerDurabilityByOne()
         {
             pencil.Durability = 10;
-            pencil.Write("LoREm");
-            Assert.Equal(2, pencil.Durability);
+            pencil.Write( "LoREm" );
+            Assert.Equal( 2, pencil.Durability );
         }
 
 
@@ -72,7 +72,7 @@ namespace Kata.Tests
         public void PencilWillReplaceCharactersWithWhitespaceIfWordRequiresMoreDurabilityThanAvailable()
         {
             pencil.Durability = 15;
-            Assert.Equal("LOREM IP                  ", pencil.Write("LOREM IPSUM dolor sit amet"));
+            Assert.Equal( "LOREM IP                  ", pencil.Write( "LOREM IPSUM dolor sit amet" ) );
         }
 
 

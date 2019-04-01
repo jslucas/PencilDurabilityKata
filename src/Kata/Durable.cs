@@ -9,9 +9,9 @@ namespace Kata
         public int Durability { get; set; }
 
 
-        public void LowerDurability(int cost)
+        public void LowerDurability( int cost )
         {
-            this.Durability = Math.Max(0, this.Durability - cost);
+            this.Durability = Math.Max( 0, this.Durability - cost );
         }
 
 

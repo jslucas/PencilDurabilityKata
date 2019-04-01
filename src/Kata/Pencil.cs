@@ -7,7 +7,7 @@ namespace Kata
     public class Pencil : Durable
     {
         #region "Props"
-        internal Paper Paper { get; set; } = new Paper();
+        internal Paper Paper { get; set; } = new Paper( );
         public int Length { get; private set; }
         public Eraser Eraser { get; private set; }
 
@@ -16,15 +16,15 @@ namespace Kata
 
 
         #region "Ctors"
-        public Pencil() : this(0, 0) { }
+        public Pencil() : this( 0, 0 ) { }
 
-        public Pencil(int durability) : this(durability, 0) { }
+        public Pencil( int durability ) : this( durability, 0 ) { }
 
-        public Pencil(int durability, int length) : this(durability, length, 0) { }
+        public Pencil( int durability, int length ) : this( durability, length, 0 ) { }
 
-        public Pencil(int durability, int length, int eraserDurability)
+        public Pencil( int durability, int length, int eraserDurability )
         {
-            this.Eraser = new Eraser(this, eraserDurability);
+            this.Eraser = new Eraser( this, eraserDurability );
             this.Length = length;
             this.mInitialDurability = durability;
             this.Durability = durability;
@@ -35,15 +35,15 @@ namespace Kata
 
 
         #region "Methods"
-        public string Write(string text)
+        public string Write( string text )
         {
-            int durabilityCost = text.DurabilityCost();
+            int durabilityCost = text.DurabilityCost( );
             if (this.Durability < durabilityCost)
             {
-                text = this.DullWrite(text);
+                text = this.DullWrite( text );
             }
 
-            this.LowerDurability(durabilityCost);
+            this.LowerDurability( durabilityCost );
             this.Paper.Text += text;
 
             return this.Paper.Text;
@@ -53,23 +53,23 @@ namespace Kata
         public void Sharpen()
         {
             this.Durability = mInitialDurability;
-            this.Length = Math.Max(0, this.Length - 1);
+            this.Length = Math.Max( 0, this.Length - 1 );
         }
 
 
-        public string DullWrite(string input)
+        public string DullWrite( string input )
         {
             int cost = 0;
             string result = "";
             for (int i = 0; i < input.Length; i++)
             {
-                if (Char.IsUpper(input[i])) { cost += 2; }
-                else if (Char.IsLower(input[i])) { cost += 1; }
+                if (Char.IsUpper( input[i] )) { cost += 2; }
+                else if (Char.IsLower( input[i] )) { cost += 1; }
 
                 if (cost > this.Durability)
                 {
                     int remainder = input.Length - i;
-                    result = input.Remove(i, remainder).Insert(i, new String(' ', remainder));
+                    result = input.Remove( i, remainder ).Insert( i, new String( ' ', remainder ) );
                     break;
                 }
             }
@@ -78,21 +78,21 @@ namespace Kata
         }
 
 
-        public string Erase(string textToRemove)
+        public string Erase( string textToRemove )
         {
-            this.Paper.Text = this.Eraser.Erase(this.Paper.Text, textToRemove);
+            this.Paper.Text = this.Eraser.Erase( this.Paper.Text, textToRemove );
             return this.Paper.Text;
         }
 
 
-        public string Edit(string text)
+        public string Edit( string text )
         {
-            char[] paperText = this.Paper.Text.ToCharArray();
-            var lastErasedIndex = this.Paper.ErasedIndexes.Last();
+            char[] paperText = this.Paper.Text.ToCharArray( );
+            var lastErasedIndex = this.Paper.ErasedIndexes.Last( );
 
             for (int i = 0; i < text.Length; i++)
             {
-                if (Char.IsWhiteSpace(paperText[lastErasedIndex + i]))
+                if (Char.IsWhiteSpace( paperText[lastErasedIndex + i] ))
                 {
                     paperText[lastErasedIndex + i] = text[i];
                 }
@@ -102,7 +102,7 @@ namespace Kata
                 }
             }
 
-            return new String(paperText);
+            return new String( paperText );
         }
 
 
