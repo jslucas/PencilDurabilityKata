@@ -57,7 +57,7 @@ namespace Kata
         }
 
 
-        public string DullWrite(string input)
+        internal string DullWrite(string input)
         {
             int cost = 0;
             string result = "";
