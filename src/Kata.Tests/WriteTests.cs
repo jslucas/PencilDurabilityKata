@@ -10,7 +10,7 @@ namespace Kata.Tests
 
         public WriteTests()
         {
-            this.pencil = new Pencil(500);
+            this.pencil = new Pencil(durability: 500);
         }
         #endregion
 
